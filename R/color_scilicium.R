@@ -62,13 +62,73 @@ scilicium_palettes_gradients <- list(
       c("#010901", "#096209", "#0db012", "#10ea18", "#aef9b0", "#e2fde3"),
       c("#000000", "#045806", "#08910d", "#0dc913", "#34ef3c", "#b3f9b5", "#e2fde3")
     )
+  ),
+  blue = list(
+    light = list(
+      c("#39a0ed"),
+      c("#39a0ed", "#abd7f7"), #light
+      c("#093c63", "#39a0ed", "#abd7f7"),
+      c("#093c63", "#39a0ed", "#91cbf5", "#deeffc"),
+      c("#06263f", "#0b4c7d", "#39a0ed", "#91cbf5", "#deeffc"),
+      c("#010509", "#093b62", "#0c62a1", "#44a5ee", "#91cbf5", "#deeffc"),
+      c("#010509", "#093b62", "#0c62a1", "#2097ee", "#68b9f3", "#acd8f6", "#deeffc")
+    ),
+    dark = list(
+      c("#39a0ed"),
+      c("#093c63", "#39a0ed"), # dark
+      c("#093c63", "#39a0ed", "#abd7f7"),
+      c("#093c63", "#39a0ed", "#91cbf5", "#deeffc"),
+      c("#06263f", "#0b4c7d", "#39a0ed", "#91cbf5", "#deeffc"),
+      c("#010509", "#093b62", "#0c62a1", "#44a5ee", "#91cbf5", "#deeffc"),
+      c("#010509", "#093b62", "#0c62a1", "#2097ee", "#68b9f3", "#acd8f6", "#deeffc")
+    )
+  ),
+  red = list(
+    light = list(
+      c("#dc394a"),
+      c("#dc394a", "#fac0ba"), #light
+      c("#500f1a", "#dc394a", "#fbc1ba"),
+      c("#5f121e", "#dc394a", "#f39288", "#fed6d2"),
+      c("#1b0408", "#861a2b", "#dc394a", "#f39288", "#fed6d2"),
+      c("#1b0408", "#6d1221", "#b5263c", "#e65f60", "#f4978d", "#fed6d2"),
+      c("#1b0408", "#60101d", "#a92338", "#dc394a", "#ed7c71", "#f9a89f", "#fed6d2")
+    ),
+    dark = list(
+      c("#dc394a"),
+      c("#4f0f1a", "#dc394a"), #dark
+      c("#500f1a", "#dc394a", "#fbc1ba"),
+      c("#5f121e", "#dc394a", "#f39288", "#fed6d2"),
+      c("#1b0408", "#861a2b", "#dc394a", "#f39288", "#fed6d2"),
+      c("#1b0408", "#6d1221", "#b5263c", "#e65f60", "#f4978d", "#fed6d2"),
+      c("#1b0408", "#60101d", "#a92338", "#dc394a", "#ed7c71", "#f9a89f", "#fed6d2")
+    )
+  ),
+  ocre = list(
+    light = list(
+      c("#dda15e"),
+      c("#583712", "#dda15e"), #dark
+      c("#583713", "#dda15e", "#f4ddc3"),
+      c("#321f0b", "#9d6321", "#dda15e", "#f8ede2"),
+      c("#321f0b", "#9d6321", "#dda15e", "#ebc8a1", "#f9eee3"),
+      c("#321f0b", "#7a4d1a", "#bb8446", "#ebb375", "#f4d6b3", "#fbf0e5"),
+      c("#321f0b", "#7a4d1a", "#a87438", "#dda15e", "#f9c58b", "#f2dabf", "#faefe4")
+    ),
+    dark = list(
+      c("#dda15e"),
+      c("#dda15e", "#f4ddc3"), #light
+      c("#583713", "#dda15e", "#f4ddc3"),
+      c("#321f0b", "#9d6321", "#dda15e", "#f8ede2"),
+      c("#321f0b", "#9d6321", "#dda15e", "#ebc8a1", "#f9eee3"),
+      c("#321f0b", "#7a4d1a", "#bb8446", "#ebb375", "#f4d6b3", "#fbf0e5"),
+      c("#321f0b", "#7a4d1a", "#a87438", "#dda15e", "#f9c58b", "#f2dabf", "#faefe4")
+    )
   )
 )
 
 
 
 
-scilicium_gradients <- function(n = 5, color="green", shade = c("light", "dark")) {
+scilicium_gradients <- function(n = 5, color=c("green", "red", "blue", "ocre"), shade = c("light", "dark")) {
   if (missing(n)) {
     stop("Number of colors is missing.")
   }
@@ -82,7 +142,7 @@ scilicium_gradients <- function(n = 5, color="green", shade = c("light", "dark")
   }
 
   color <- match.arg(color)
-  if (color != "green") {
+  if(!(color %in% c("green", "red", "blue", "ocre"))) {
     stop("color must be either 'green'")
   }
 
@@ -96,12 +156,10 @@ scilicium_gradients <- function(n = 5, color="green", shade = c("light", "dark")
 
 
 
-
-
 #' SciLicium gradient colors
 #'
 #' @param n An integer representing the number of colors in the gradient
-#' @param color A color to use (currently only "green" is supported)
+#' @param color A color to use (currently only "green", "blue", "red" and "ocre" are supported)
 #' @param shade A shade to use ("light" or "dark")
 #' @return A custom ggplot2 color scale
 #'
@@ -109,7 +167,18 @@ scilicium_gradients <- function(n = 5, color="green", shade = c("light", "dark")
 #' @title SciLicium scale gradient color for ggplot2
 #' @examples
 #' scale_color_scilicium_gradients(10, "green", "dark")
-
+#' @examples
+#' library(ggplot2)
+#' n_category <- 5
+#' n_replicates <- 5
+#' tmp_df <- data.frame(x = runif(n_replicates * n_category),
+#'   y=runif(n_replicates * n_category),
+#'   category=letters[rep(1:n_category, n_replicates)])
+#' gg <- ggplot(tmp_df, aes(x=x, y=y, col=category)) +
+#'   geom_point() +
+#'   scale_color_scilicium_gradients(5, "red", "dark") +
+#'   theme_scilicium()
+#'
 
 scale_color_scilicium_gradients <- function(n = 5, color="green", shade = c("light", "dark")) {
   ggplot2::scale_color_manual(values=scilicium_gradients(n, color, shade))
@@ -127,7 +196,18 @@ scale_color_scilicium_gradients <- function(n = 5, color="green", shade = c("lig
 #' @title SciLicium scale gradient fill for ggplot2
 #' @examples
 #' scale_fill_scilicium_gradients(10, "green", "dark")
-
+#' @examples
+#' library(ggplot2)
+#' n_category <- 5
+#' n_replicates <- 5
+#' tmp_df <- data.frame(x = runif(n_replicates * n_category),
+#'   y=runif(n_replicates * n_category),
+#'   category=letters[rep(1:n_category, n_replicates)])
+#' gg <- ggplot(tmp_df, aes(x=category, y=y, fill=category)) +
+#'   geom_boxplot() +
+#'   scale_fill_scilicium_gradients(5, "red", "dark") +
+#'   theme_scilicium()
+#'
 
 scale_fill_scilicium_gradients <- function(n = 5, color="green", shade = c("light", "dark")) {
   ggplot2::scale_fill_manual(values=scilicium_gradients(n, color, shade))

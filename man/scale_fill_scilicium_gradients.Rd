@@ -25,4 +25,15 @@ SciLicium gradient colors
 }
 \examples{
 scale_fill_scilicium_gradients(10, "green", "dark")
+library(ggplot2)
+n_category <- 5
+n_replicates <- 5
+tmp_df <- data.frame(x = runif(n_replicates * n_category),
+  y=runif(n_replicates * n_category),
+  category=letters[rep(1:n_category, n_replicates)])
+gg <- ggplot(tmp_df, aes(x=category, y=y, fill=category)) +
+  geom_boxplot() +
+  scale_fill_scilicium_gradients(5, "red", "dark") +
+  theme_scilicium()
+
 }
