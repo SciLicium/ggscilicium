@@ -6,16 +6,14 @@
 \usage{
 scale_fill_scilicium_gradients(
   n = 5,
-  color = "green",
-  shade = c("light", "dark")
+  name = c("DarkGreen", "DarkBlue", "DarkRed", "DarkOCre", "LightGreen", "LightBlue",
+    "LightRed", "LightOcre")
 )
 }
 \arguments{
 \item{n}{An integer representing the number of colors in the gradient}
 
-\item{color}{A color to use (currently only "green" is supported)}
-
-\item{shade}{A shade to use ("light" or "dark")}
+\item{name}{The name of a sequential palette to use (currently only "DarkGreen", "DarkBlue", "DarkRed", "DarkOCre", "LightGreen", "LightBlue", "LightRed", "LightOcre" are supported)}
 }
 \value{
 A custom ggplot2 color scale
@@ -24,7 +22,7 @@ A custom ggplot2 color scale
 SciLicium gradient colors
 }
 \examples{
-scale_fill_scilicium_gradients(10, "green", "dark")
+scale_fill_scilicium_gradients(10, "DarkGreen")
 library(ggplot2)
 n_category <- 5
 n_replicates <- 5
@@ -33,7 +31,7 @@ tmp_df <- data.frame(x = runif(n_replicates * n_category),
   category=letters[rep(1:n_category, n_replicates)])
 gg <- ggplot(tmp_df, aes(x=category, y=y, fill=category)) +
   geom_boxplot() +
-  scale_fill_scilicium_gradients(5, "red", "dark") +
+  scale_fill_scilicium_gradients(5, "DarkRed") +
   theme_scilicium()
 
 }

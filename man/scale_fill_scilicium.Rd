@@ -4,12 +4,10 @@
 \alias{scale_fill_scilicium}
 \title{SciLicium scale fill for ggplot2}
 \usage{
-scale_fill_scilicium(theme = "SciliciumLight", pal_key = scilicium_palettes)
+scale_fill_scilicium(name = "SciliciumLight")
 }
 \arguments{
-\item{theme}{A theme to use}
-
-\item{pal_key}{A list of palettes}
+\item{name}{The name of the palette to use. Currently available palettes are "SciliciumLight" (default, 5 colors), "SciliciumDark" (5 colors), "SciliciumPaired" (8 colors), "KombuGreen" (5 colors) and "EarthYellow" (5 colors)}
 }
 \value{
 A custom ggplot2 color scale
@@ -18,5 +16,5 @@ A custom ggplot2 color scale
 SciLicium scale fill
 }
 \examples{
-scale_fill_scilicium(theme="KombuGreen")
+scale_fill_scilicium("KombuGreen")
 }
