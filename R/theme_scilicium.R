@@ -33,7 +33,7 @@ theme_scilicium <- function() {
     subtitle_family="titillium",
     subtitle_colour = "#0DBA13",
     caption_family="titillium",
-    caption_colour = "#0DBA13",
+    caption_colour = "#cccccc",
     text_family = "sans",
     text_colour = "#1A1A1A")
 
@@ -53,6 +53,7 @@ theme_scilicium <- function() {
     ggplot2::theme(axis.ticks.x = ggplot2::element_line(color=scilicium_params$text_colour)) +
     ggplot2::theme(axis.ticks.y = ggplot2::element_line(color=scilicium_params$text_colour)) +
     ggplot2::theme(plot.caption = ggplot2::element_text(colour = scilicium_params$caption_colour,
-                                                        family=scilicium_params$caption_family))
+                                                        family=scilicium_params$caption_family,
+                                                        size=rel(0.6)))
 
 }

@@ -1,3 +1,4 @@
+
 scilicium_qual_palettes <- list(
   SciliciumLight  = c("#0DBA13", "#39A0ED", "#466365", "#CAC4CE", "#F7ECE1"), #https://coolors.co/0dba13-466365-39a0ed-cac4ce-f7ece1
   SciliciumDark   = c("#08750C", "#1067AB", "#2D3F40", "#81738A", "#D39558"), #https://coolors.co/08750c-2d3f40-1067ab-81738a-d39558
@@ -16,40 +17,7 @@ scilicium_qual_palettes <- list(
   EarthYellow     = c("#0DBA13", "#283618", "#51BBFE", "#DDA15E", "#FEFAE0")#https://coolors.co/0dba13-283618-fefae0-dda15e-51bbfe
 )
 
-
-#' SciLicium scale color
-#'
-#' @param name The name of the palette to use. Currently available palettes are "SciliciumLight" (default, 5 colors), "SciliciumDark" (5 colors), "SciliciumPaired" (8 colors), "KombuGreen" (5 colors) and "EarthYellow" (5 colors)
-#' @return A custom ggplot2 color scale
-#'
-#'
-#' @export
-#' @title SciLicium scale color for ggplot2
-#' @examples
-#' scale_color_scilicium("KombuGreen")
-
-scale_color_scilicium <- function(name="SciliciumLight") {
-  ggplot2::scale_color_manual(values=scilicium_qual_palettes[[name]])
-}
-
-
-#' SciLicium scale fill
-#'
-#' @param name The name of the palette to use. Currently available palettes are "SciliciumLight" (default, 5 colors), "SciliciumDark" (5 colors), "SciliciumPaired" (8 colors), "KombuGreen" (5 colors) and "EarthYellow" (5 colors)
-#' @return A custom ggplot2 color scale
-#'
-#' @export
-#' @title SciLicium scale fill for ggplot2
-#' @examples
-#' scale_fill_scilicium("KombuGreen")
-
-
-scale_fill_scilicium <- function(name="SciliciumLight") {
-  ggplot2::scale_fill_manual(values=scilicium_qual_palettes[[name]])
-}
-
-
-# gradients are defined from darker to lighter shades
+# sequential palettes (or gradients) are defined from darker to lighter shades
 scilicium_sequential_palettes <- list(
   DarkGreen = list(
       c("#0dba13"),
@@ -127,8 +95,13 @@ scilicium_sequential_palettes <- list(
 
 
 
-
-scilicium_gradients <- function(n = 5, name=c("DarkGreen", "DarkBlue", "DarkRed", "DarkOCre", "LightGreen", "LightBlue", "LightRed", "LightOcre")) {
+#' Helper function that helps generate a sequential palette of arbitrary length
+#'
+#' @param n The number of colors in the sequential palette
+#' @param name The name of the palette to use
+#'
+#' @return A vector of RGB codes
+generate_seq_palette <- function(n = 5, name="LightGreen") {
   if (missing(n)) {
     stop("Number of colors is missing.")
   }
@@ -136,61 +109,103 @@ scilicium_gradients <- function(n = 5, name=c("DarkGreen", "DarkBlue", "DarkRed"
     stop("n must be > 0.")
   }
 
-  pal_name <- match.arg(name)
-  if(!(pal_name %in% names(scilicium_sequential_palettes))) {
-    err_msg <- paste(pal_name, "is not a valid scilicium palette name. Available names are:\n\t\t")
-    err_msg <- paste(err_msg, paste(names(scilicium_sequential_palettes), collapse="\n\t\t"))
-    stop(err_msg)
-  }
-
   if(n <= 7){
-    col_pal <- scilicium_sequential_palettes[[pal_name]][[n]]
+    col_pal <- scilicium_sequential_palettes[[name]][[n]]
   } else {
-    col_pal <- grDevices::colorRampPalette(scilicium_sequential_palettes[[pal_name]][[6]])(n)
+    col_pal <- grDevices::colorRampPalette(scilicium_sequential_palettes[[name]][[6]])(n)
   }
   col_pal
 }
 
 
 
-#' SciLicium gradient colors
+#' Access a Scilicium palette
 #'
-#' @param n An integer representing the number of colors in the gradient
-#' @param name The name of a sequential palette to use (currently only "DarkGreen", "DarkBlue", "DarkRed", "DarkOCre", "LightGreen", "LightBlue", "LightRed", "LightOcre" are supported)
-#' @return A custom ggplot2 color scale
+#' @param n An integer representing the number of colors in the palette
+#' @param name The name of the palette to use. Currently available palettes are SciliciumLight, SciliciumDark, SciliciumPaired2, SciliciumPairedLight, SciliciumPairedDark, KombuGreen and EarthYellow (for qualitative palettes), DarkGreen, LightGreen, DarkBlue, LightBlue, DarkRed, LightRed, DarkOcre, LightOcre (for sequential palettes)
+#' @return A vector of html color codes
 #'
 #' @export
-#' @title SciLicium scale gradient color for ggplot2
+#' @title Return a scilicium palette
 #' @examples
-#' scale_color_scilicium_gradients(10, "DarkGreen")
+#' scilicium_pal(5, "DarkGreen")
+#' scilicium_pal(10, "SciliciumPairedLight")
+
+scilicium_pal <- function(n, name){
+  if(!(name %in% names(scilicium_qual_palettes)) && !(name %in% names(scilicium_sequential_palettes))){
+    err_msg <- paste(name, "is not a valid scilicium palette name.\nAvailable names for qualitative palettes are:\n\t\t")
+    err_msg <- paste(err_msg, paste(names(scilicium_qual_palettes), collapse="\n\t\t"))
+    err_msg <- paste(err_msg, "\nAvailable names for sequential palettes are:\n\t\t")
+    err_msg <- paste(err_msg, paste(names(scilicium_sequential_palettes), collapse="\n\t\t"))
+    stop(err_msg)
+  }
+  ncolors <- n
+  if(name %in% names(scilicium_qual_palettes)){
+    if(n < 3){
+      warning("minimal value for n is 3, displaying requested palette with 3 different levels\n")
+      ncolors <- 3
+    }
+    if(n > length(scilicium_qual_palettes[[name]])){
+      warning(paste("n too large, allowed maximum for palette", name, "is", length(scilicium_qual_palettes[[name]])),
+              "\nDisplaying the palette you asked for with that many colors\n")
+      ncolors <- length(scilicium_qual_palettes[[name]])
+    }
+    print_colors <- scilicium_qual_palettes[[name]][1:ncolors]
+  }
+  if(name %in% names(scilicium_sequential_palettes)){
+    if(n < 1){
+      warning("minimal value for n is 1, displaying requested palette with 3 different levels\n")
+      ncolors <- 3
+    }
+    print_colors <- generate_seq_palette(ncolors, name)
+  }
+
+  return(print_colors)
+}
+
+
+
+
+
+#' SciLicium scale color
+#'
+#' @param name The name of the palette to use. Currently available palettes are SciliciumLight, SciliciumDark, SciliciumPaired2, SciliciumPairedLight, SciliciumPairedDark, KombuGreen and EarthYellow (for qualitative palettes), DarkGreen, LightGreen, DarkBlue, LightBlue, DarkRed, LightRed, DarkOcre, LightOcre (for sequential palettes)
+#' @param n An integer representing the number of colors in the palette
+#' @return A custom ggplot2 color scale
+#'
+#'
+#' @export
+#' @title SciLicium scale color for ggplot2
+#' @examples
+#' scale_color_scilicium(5, "KombuGreen")
 #' @examples
 #' library(ggplot2)
-#' n_category <- 5
+#' n_category <- 10
 #' n_replicates <- 5
 #' tmp_df <- data.frame(x = runif(n_replicates * n_category),
 #'   y=runif(n_replicates * n_category),
 #'   category=letters[rep(1:n_category, n_replicates)])
 #' gg <- ggplot(tmp_df, aes(x=x, y=y, col=category)) +
 #'   geom_point() +
-#'   scale_color_scilicium_gradients(5, "DarkRed") +
+#'   scale_color_scilicium(5, "SciliciumPairedLight") +
 #'   theme_scilicium()
-#'
 
-scale_color_scilicium_gradients <- function(n = 5, name=c("DarkGreen", "DarkBlue", "DarkRed", "DarkOCre", "LightGreen", "LightBlue", "LightRed", "LightOcre")) {
-  ggplot2::scale_color_manual(values=scilicium_gradients(n, name))
+scale_color_scilicium <- function(n=5, name="SciliciumLight") {
+  ggplot2::scale_color_manual(values=scilicium_pal(n, name))
 }
 
 
-#' SciLicium gradient colors
+#' SciLicium scale fill
 #'
-#' @param n An integer representing the number of colors in the gradient
-#' @param name The name of a sequential palette to use (currently only "DarkGreen", "DarkBlue", "DarkRed", "DarkOCre", "LightGreen", "LightBlue", "LightRed", "LightOcre" are supported)
-#' @return A custom ggplot2 color scale
+#' @param name The name of the palette to use. Currently available palettes are SciliciumLight, SciliciumDark, SciliciumPaired2, SciliciumPairedLight, SciliciumPairedDark, KombuGreen and EarthYellow (for qualitative palettes), DarkGreen, LightGreen, DarkBlue, LightBlue, DarkRed, LightRed, DarkOcre, LightOcre (for sequential palettes)
+#' @param n An integer representing the number of colors in the palette
+#' @return A custom ggplot2 color fill scale
+#'
 #'
 #' @export
-#' @title SciLicium scale gradient fill for ggplot2
+#' @title SciLicium scale fill for ggplot2
 #' @examples
-#' scale_fill_scilicium_gradients(10, "DarkGreen")
+#' scale_fill_scilicium(5, "KombuGreen")
 #' @examples
 #' library(ggplot2)
 #' n_category <- 5
@@ -200,17 +215,12 @@ scale_color_scilicium_gradients <- function(n = 5, name=c("DarkGreen", "DarkBlue
 #'   category=letters[rep(1:n_category, n_replicates)])
 #' gg <- ggplot(tmp_df, aes(x=category, y=y, fill=category)) +
 #'   geom_boxplot() +
-#'   scale_fill_scilicium_gradients(5, "DarkRed") +
+#'   scale_fill_scilicium(5, "DarkRed") +
 #'   theme_scilicium()
-#'
 
-scale_fill_scilicium_gradients <- function(n = 5, name=c("DarkGreen", "DarkBlue", "DarkRed", "DarkOCre", "LightGreen", "LightBlue", "LightRed", "LightOcre")) {
-  ggplot2::scale_fill_manual(values=scilicium_gradients(n, name))
+scale_fill_scilicium <- function(n=5, name="SciliciumLight") {
+  ggplot2::scale_fill_manual(values=scilicium_pal(n, name))
 }
-
-
-
-
 
 
 
@@ -255,7 +265,7 @@ display_scilicium_pal <- function(n, name){
       warning("minimal value for n is 1, displaying requested palette with 3 different levels\n")
       ncolors <- 3
     }
-    print_colors <- scilicium_gradients(ncolors, name)
+    print_colors <- generate_seq_palette(ncolors, name)
 
     #if(length(which(name==quallist))>0) palattr<-"(qualitative)"
     palattr<-"(sequential)"
@@ -265,12 +275,14 @@ display_scilicium_pal <- function(n, name){
         xlab=paste(name, palattr),ylab="",xaxt="n",yaxt="n",bty="n")
 }
 
+
+
 #' Display all Scilicium palettes
 #'
-#' @return A custom ggplot2 color scale
+#' @return A very nice plot!
 #'
 #' @export
-#' @title Display all scilicium palettes
+#' @title Display all available scilicium palettes
 
 display_scilicium_all <- function(){
 
@@ -283,8 +295,8 @@ display_scilicium_all <- function(){
   nr <- length(all_palettes)
   nc <- max(max(pal_lengths), max(lengths(scilicium_sequential_palettes))+3)
 
-  oldpar <- par(mgp=c(2,0.25,0))
-  on.exit(par(oldpar))
+  oldpar <- graphics::par(mgp=c(2,0.25,0))
+  on.exit(graphics::par(oldpar))
 
   plot(1, 1, xlim=c(0, nc), ylim=c(0,nr), type="n", axes=FALSE, bty="n",
        xlab="", ylab="")
@@ -293,7 +305,7 @@ display_scilicium_all <- function(){
     pal <- qual_palettes[i]
     nj <- lengths(scilicium_qual_palettes)[[pal]]
 
-    rect(xleft=0:(nj-1), ybottom=i-1, xright=1:nj, ytop=i-0.2, col=scilicium_qual_palettes[[pal]],
+    graphics::rect(xleft=0:(nj-1), ybottom=i-1, xright=1:nj, ytop=i-0.2, col=scilicium_qual_palettes[[pal]],
          border="light grey")
   }
   y_offset <- length(qual_palettes)+1
@@ -304,16 +316,16 @@ display_scilicium_all <- function(){
 
     nj_offset <- 3
 
-    rect(xleft=0:(2-1), ybottom=i-1+y_offset, xright=1:2, ytop=i-0.2+y_offset, col=scilicium_sequential_palettes[[pal]][[2]],
+    graphics::rect(xleft=0:(2-1), ybottom=i-1+y_offset, xright=1:2, ytop=i-0.2+y_offset, col=scilicium_sequential_palettes[[pal]][[2]],
          border="light grey")
 
-    rect(xleft=nj_offset:(nj-1+nj_offset), ybottom=i-1+y_offset, xright=(nj_offset+1):(nj+nj_offset), ytop=i-0.2+y_offset, col=scilicium_sequential_palettes[[pal]][[nj]],
+    graphics::rect(xleft=nj_offset:(nj-1+nj_offset), ybottom=i-1+y_offset, xright=(nj_offset+1):(nj+nj_offset), ytop=i-0.2+y_offset, col=scilicium_sequential_palettes[[pal]][[nj]],
          border="light grey")
   }
-  text(rep(2.05,length(seq_palettes)),(1:length(seq_palettes))-0.6+y_offset, labels=rep("(2)", length(seq_palettes)), xpd=TRUE, adj=0)
-  text(rep(max(lengths(scilicium_sequential_palettes))+3+.05,length(seq_palettes)),(1:length(seq_palettes))-0.6+y_offset, labels=rep("(7)", length(seq_palettes)), xpd=TRUE, adj=0)
+  graphics::text(rep(2.05,length(seq_palettes)),(1:length(seq_palettes))-0.6+y_offset, labels=rep("(2)", length(seq_palettes)), xpd=TRUE, adj=0)
+  graphics::text(rep(max(lengths(scilicium_sequential_palettes))+3+.05,length(seq_palettes)),(1:length(seq_palettes))-0.6+y_offset, labels=rep("(7)", length(seq_palettes)), xpd=TRUE, adj=0)
 
-  text(rep(-0.1,nr),(1:nr)-0.6, labels=all_palettes, xpd=TRUE, adj=1)
+  graphics::text(rep(-0.1,nr),(1:nr)-0.6, labels=all_palettes, xpd=TRUE, adj=1)
 
 }
 

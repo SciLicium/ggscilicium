@@ -2,12 +2,12 @@
 % Please edit documentation in R/color_scilicium.R
 \name{display_scilicium_all}
 \alias{display_scilicium_all}
-\title{Display all scilicium palettes}
+\title{Display all available scilicium palettes}
 \usage{
 display_scilicium_all()
 }
 \value{
-A custom ggplot2 color scale
+A very nice plot!
 }
 \description{
 Display all Scilicium palettes
