@@ -14,6 +14,8 @@ scilicium_qual_palettes <- list(
                           "#dda15e", "#6c1524",
                           "#a85edd", "#551b7e"),
   KombuGreen      = c("#0DBA13", "#283618", "#93827F", "#E0D2C3", "#B4D4EE"), #https://coolors.co/0dba13-283618-93827f-e0d2c3-b4d4ee
+  Midnight      = c("#0DBA13", "#39A0ED", "#114B5F", "#E4FDE1", "#F45B69"), #https://coolors.co/0dba13-39a0ed-114b5f-e4fde1-f45b69
+  Vivid      = c("#0DBA13", "#39A0ED", "#F6511D", "#FFB400", "#0D2C54", "#9B5DE5", "#F15BB5", "#136F63", "#732C2C", "#B9E28C", "#F0F7F4", "#DDA15E"), #https://coolors.co/0dba13-39a0ed-f6511d-ffb400-0d2c54
   EarthYellow     = c("#0DBA13", "#283618", "#51BBFE", "#DDA15E", "#FEFAE0")#https://coolors.co/0dba13-283618-fefae0-dda15e-51bbfe
 )
 
@@ -21,9 +23,9 @@ scilicium_qual_palettes <- list(
 scilicium_sequential_palettes <- list(
   DarkGreen = list(
       c("#0dba13"),
-      c("#064406", "#0dba13"), #dark
-      c("#064406", "#0dba13", "#c6fbc7"),
-      c("#064406", "#0dba13", "#7ff582", "#d4fcd6"),
+      c("#086408", "#0dba13"), #dark
+      c("#086408", "#0dba13", "#c6fbc7"),
+      c("#086408", "#0dba13", "#7ff582", "#d4fcd6"),
       c("#010901", "#096209", "#0dba13", "#7ff582", "#d4fcd6"),
       c("#010901", "#096209", "#0db012", "#10ea18", "#aef9b0", "#e2fde3"),
       c("#000000", "#045806", "#08910d", "#0dc913", "#34ef3c", "#b3f9b5", "#e2fde3")
@@ -31,52 +33,52 @@ scilicium_sequential_palettes <- list(
   LightGreen = list(
       c("#0dba13"),
       c("#0dba13", "#c6fbc7"), #light
-      c("#064406", "#0dba13", "#c6fbc7"),
-      c("#064406", "#0dba13", "#7ff582", "#d4fcd6"),
+      c("#086408", "#0dba13", "#c6fbc7"),
+      c("#086408", "#0dba13", "#7ff582", "#d4fcd6"),
       c("#010901", "#096209", "#0dba13", "#7ff582", "#d4fcd6"),
       c("#010901", "#096209", "#0db012", "#10ea18", "#aef9b0", "#e2fde3"),
       c("#000000", "#045806", "#08910d", "#0dc913", "#34ef3c", "#b3f9b5", "#e2fde3")
     ),
-  LightBlue = list(
-      c("#39a0ed"),
-      c("#39a0ed", "#abd7f7"), #light
-      c("#093c63", "#39a0ed", "#abd7f7"),
-      c("#093c63", "#39a0ed", "#91cbf5", "#deeffc"),
-      c("#06263f", "#0b4c7d", "#39a0ed", "#91cbf5", "#deeffc"),
-      c("#010509", "#093b62", "#0c62a1", "#44a5ee", "#91cbf5", "#deeffc"),
-      c("#010509", "#093b62", "#0c62a1", "#2097ee", "#68b9f3", "#acd8f6", "#deeffc")
-    ),
   DarkBlue = list(
       c("#39a0ed"),
-      c("#093c63", "#39a0ed"), # dark
-      c("#093c63", "#39a0ed", "#abd7f7"),
-      c("#093c63", "#39a0ed", "#91cbf5", "#deeffc"),
+      c("#0c4d7c", "#39a0ed"), # dark
+      c("#0c4d7c", "#39a0ed", "#abd7f7"),
+      c("#0c4d7c", "#39a0ed", "#91cbf5", "#deeffc"),
       c("#06263f", "#0b4c7d", "#39a0ed", "#91cbf5", "#deeffc"),
       c("#010509", "#093b62", "#0c62a1", "#44a5ee", "#91cbf5", "#deeffc"),
       c("#010509", "#093b62", "#0c62a1", "#2097ee", "#68b9f3", "#acd8f6", "#deeffc")
   ),
+  LightBlue = list(
+    c("#39a0ed"),
+    c("#39a0ed", "#abd7f7"), #light
+    c("#0c4d7c", "#39a0ed", "#abd7f7"),
+    c("#0c4d7c", "#39a0ed", "#91cbf5", "#deeffc"),
+    c("#06263f", "#0b4c7d", "#39a0ed", "#91cbf5", "#deeffc"),
+    c("#010509", "#093b62", "#0c62a1", "#44a5ee", "#91cbf5", "#deeffc"),
+    c("#010509", "#093b62", "#0c62a1", "#2097ee", "#68b9f3", "#acd8f6", "#deeffc")
+  ),
+  DarkRed = list(
+    c("#dc394a"),
+    c("#781728", "#dc394a"), #dark
+    c("#781728", "#dc394a", "#fbc1ba"),
+    c("#781728", "#dc394a", "#f39288", "#fed6d2"),
+    c("#1b0408", "#861a2b", "#dc394a", "#f39288", "#fed6d2"),
+    c("#1b0408", "#6d1221", "#b5263c", "#e65f60", "#f4978d", "#fed6d2"),
+    c("#1b0408", "#60101d", "#a92338", "#dc394a", "#ed7c71", "#f9a89f", "#fed6d2")
+  ),
   LightRed = list(
       c("#dc394a"),
       c("#dc394a", "#fac0ba"), #light
-      c("#500f1a", "#dc394a", "#fbc1ba"),
-      c("#5f121e", "#dc394a", "#f39288", "#fed6d2"),
-      c("#1b0408", "#861a2b", "#dc394a", "#f39288", "#fed6d2"),
-      c("#1b0408", "#6d1221", "#b5263c", "#e65f60", "#f4978d", "#fed6d2"),
-      c("#1b0408", "#60101d", "#a92338", "#dc394a", "#ed7c71", "#f9a89f", "#fed6d2")
-    ),
-  DarkRed = list(
-      c("#dc394a"),
-      c("#4f0f1a", "#dc394a"), #dark
-      c("#500f1a", "#dc394a", "#fbc1ba"),
-      c("#5f121e", "#dc394a", "#f39288", "#fed6d2"),
+      c("#781728", "#dc394a", "#fbc1ba"),
+      c("#781728", "#dc394a", "#f39288", "#fed6d2"),
       c("#1b0408", "#861a2b", "#dc394a", "#f39288", "#fed6d2"),
       c("#1b0408", "#6d1221", "#b5263c", "#e65f60", "#f4978d", "#fed6d2"),
       c("#1b0408", "#60101d", "#a92338", "#dc394a", "#ed7c71", "#f9a89f", "#fed6d2")
     ),
   DarkOcre = list(
       c("#dda15e"),
-      c("#583712", "#dda15e"), #dark
-      c("#583713", "#dda15e", "#f4ddc3"),
+      c("#7e501b", "#dda15e"), #dark
+      c("#7e501b", "#dda15e", "#f4ddc3"),
       c("#321f0b", "#9d6321", "#dda15e", "#f8ede2"),
       c("#321f0b", "#9d6321", "#dda15e", "#ebc8a1", "#f9eee3"),
       c("#321f0b", "#7a4d1a", "#bb8446", "#ebb375", "#f4d6b3", "#fbf0e5"),
@@ -85,7 +87,7 @@ scilicium_sequential_palettes <- list(
   LightOcre = list(
       c("#dda15e"),
       c("#dda15e", "#f4ddc3"), #light
-      c("#583713", "#dda15e", "#f4ddc3"),
+      c("#7e501b", "#dda15e", "#f4ddc3"),
       c("#321f0b", "#9d6321", "#dda15e", "#f8ede2"),
       c("#321f0b", "#9d6321", "#dda15e", "#ebc8a1", "#f9eee3"),
       c("#321f0b", "#7a4d1a", "#bb8446", "#ebb375", "#f4d6b3", "#fbf0e5"),
@@ -323,17 +325,10 @@ display_scilicium_all <- function(){
          border="light grey")
   }
   graphics::text(rep(2.05,length(seq_palettes)),(1:length(seq_palettes))-0.6+y_offset, labels=rep("(2)", length(seq_palettes)), xpd=TRUE, adj=0)
-  graphics::text(rep(max(lengths(scilicium_sequential_palettes))+3+.05,length(seq_palettes)),(1:length(seq_palettes))-0.6+y_offset, labels=rep("(7)", length(seq_palettes)), xpd=TRUE, adj=0)
+  graphics::text(rep(max(lengths(scilicium_sequential_palettes))+3+.05,length(seq_palettes)),(1:length(seq_palettes))-0.6+y_offset, labels=lengths(scilicium_sequential_palettes), xpd=TRUE, adj=0)
 
   graphics::text(rep(-0.1,nr),(1:nr)-0.6, labels=all_palettes, xpd=TRUE, adj=1)
 
 }
-
-
-
-
-
-
-
 
 
