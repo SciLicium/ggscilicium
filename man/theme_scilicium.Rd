@@ -7,7 +7,7 @@
 theme_scilicium()
 }
 \description{
-scilicium theme
+Function to use the ggplot2 SciLicium theme.
 }
 \examples{
 library(ggplot2)

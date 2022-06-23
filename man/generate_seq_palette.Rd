@@ -4,12 +4,12 @@
 \alias{generate_seq_palette}
 \title{Helper function that helps generate a sequential palette of arbitrary length}
 \usage{
-generate_seq_palette(n = 5, name = "LightGreen")
+generate_seq_palette(name = "LightGreen", n = 5)
 }
 \arguments{
-\item{n}{The number of colors in the sequential palette}
-
 \item{name}{The name of the palette to use}
+
+\item{n}{The number of colors in the sequential palette}
 }
 \value{
 A vector of RGB codes

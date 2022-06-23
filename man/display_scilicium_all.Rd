@@ -2,7 +2,7 @@
 % Please edit documentation in R/color_scilicium.R
 \name{display_scilicium_all}
 \alias{display_scilicium_all}
-\title{Display all available scilicium palettes}
+\title{Display all scilicium palettes}
 \usage{
 display_scilicium_all()
 }
@@ -10,5 +10,10 @@ display_scilicium_all()
 A very nice plot!
 }
 \description{
-Display all Scilicium palettes
+Display all available Scilicium palettes
 }
+\seealso{
+Other palette vizualization functions: 
+\code{\link{display_scilicium_pal}()}
+}
+\concept{palette vizualization functions}

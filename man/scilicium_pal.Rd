@@ -2,22 +2,23 @@
 % Please edit documentation in R/color_scilicium.R
 \name{scilicium_pal}
 \alias{scilicium_pal}
-\title{Return a scilicium palette}
+\title{Access a scilicium palette}
 \usage{
-scilicium_pal(n, name)
+scilicium_pal(name, n)
 }
 \arguments{
-\item{n}{An integer representing the number of colors in the palette}
+\item{name}{The name of the palette to use. Currently available palettes are SciliciumLight, SciliciumDark, SciliciumPaired2, SciliciumPairedLight, SciliciumPairedDark, KombuGreen and EarthYellow (for qualitative palettes), DarkGreen, LightGreen, DarkBlue, LightBlue, DarkRed, LightRed, DarkOchre, LightOchre (for sequential palettes)}
 
-\item{name}{The name of the palette to use. Currently available palettes are SciliciumLight, SciliciumDark, SciliciumPaired2, SciliciumPairedLight, SciliciumPairedDark, KombuGreen and EarthYellow (for qualitative palettes), DarkGreen, LightGreen, DarkBlue, LightBlue, DarkRed, LightRed, DarkOcre, LightOcre (for sequential palettes)}
+\item{n}{An integer representing the number of colors in the palette}
 }
 \value{
 A vector of html color codes
 }
 \description{
-Access a Scilicium palette
+Access a Scilicium palette in the form of a vector of html color codes.
 }
 \examples{
-scilicium_pal(5, "DarkGreen")
-scilicium_pal(10, "SciliciumPairedLight")
+scilicium_pal("DarkGreen", 5)
+scilicium_pal("DarkGreen", 3)
+scilicium_pal("SciliciumPairedLight", 10)
 }

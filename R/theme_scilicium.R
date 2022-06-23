@@ -1,9 +1,12 @@
 
-##########
-#' scilicium theme
+
+#' @title Scilicium theme for ggplot2
+#'
+#' @description
+#' Function to use the ggplot2 SciLicium theme.
 #'
 #' @export
-#' @title Scilicium theme for ggplot2
+#'
 #' @examples
 #' library(ggplot2)
 #' data("midwest", package = "ggplot2")

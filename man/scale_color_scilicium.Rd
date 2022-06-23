@@ -4,21 +4,22 @@
 \alias{scale_color_scilicium}
 \title{SciLicium scale color for ggplot2}
 \usage{
-scale_color_scilicium(n = 5, name = "SciliciumLight")
+scale_color_scilicium(name = "SciliciumLight", n = 20)
 }
 \arguments{
-\item{n}{An integer representing the number of colors in the palette}
+\item{name}{The name of the palette to use. Currently available palettes are SciliciumLight, SciliciumDark, SciliciumPaired2, SciliciumPairedLight, SciliciumPairedDark, KombuGreen and EarthYellow (for qualitative palettes), DarkGreen, LightGreen, DarkBlue, LightBlue, DarkRed, LightRed, DarkOchre, LightOchre (for sequential palettes)}
 
-\item{name}{The name of the palette to use. Currently available palettes are SciliciumLight, SciliciumDark, SciliciumPaired2, SciliciumPairedLight, SciliciumPairedDark, KombuGreen and EarthYellow (for qualitative palettes), DarkGreen, LightGreen, DarkBlue, LightBlue, DarkRed, LightRed, DarkOcre, LightOcre (for sequential palettes)}
+\item{n}{An integer representing the number of colors in the palette}
 }
 \value{
 A custom ggplot2 color scale
 }
 \description{
-SciLicium scale color
+The \code{SciLicium} scales provide sequential and qualitative
+colour schemes in line with SciLicium graphic theme.
 }
 \examples{
-scale_color_scilicium(5, "KombuGreen")
+scale_color_scilicium("KombuGreen", 5)
 library(ggplot2)
 n_category <- 10
 n_replicates <- 5
@@ -27,6 +28,22 @@ tmp_df <- data.frame(x = runif(n_replicates * n_category),
   category=letters[rep(1:n_category, n_replicates)])
 gg <- ggplot(tmp_df, aes(x=x, y=y, col=category)) +
   geom_point() +
-  scale_color_scilicium(5, "SciliciumPairedLight") +
+  scale_color_scilicium("SciliciumPairedLight", 10) +
   theme_scilicium()
+library(ggplot2)
+n_category <- 10
+n_replicates <- 5
+tmp_df <- data.frame(x = runif(n_replicates * n_category),
+  y=runif(n_replicates * n_category),
+  category=letters[rep(1:n_category, n_replicates)])
+gg <- ggplot(tmp_df, aes(x=x, y=y, col=category)) +
+  geom_point() +
+  scale_color_scilicium("Vivid", 10) +
+  theme_scilicium()
+
 }
+\seealso{
+Other ggplot2 functions: 
+\code{\link{scale_fill_scilicium}()}
+}
+\concept{ggplot2 functions}

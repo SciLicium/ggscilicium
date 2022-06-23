@@ -4,20 +4,26 @@
 \alias{display_scilicium_pal}
 \title{Display a scilicium palette}
 \usage{
-display_scilicium_pal(n, name)
+display_scilicium_pal(name, n)
 }
 \arguments{
-\item{n}{An integer representing the number of colors in the palette}
-
 \item{name}{The name of the palette to use. Currently available palettes are "SciliciumLight" (default, 5 colors), "SciliciumDark" (5 colors), "SciliciumPaired" (8 colors), "KombuGreen" (5 colors) and "EarthYellow" (5 colors)}
+
+\item{n}{An integer representing the number of colors in the palette}
 }
 \value{
 A custom ggplot2 color scale
 }
 \description{
-Display Scilicium palette
+Display a given SciLicium palette
 }
 \examples{
-display_scilicium_pal(5, "DarkGreen")
-display_scilicium_pal(10, "SciliciumPairedLight")
+display_scilicium_pal("DarkGreen", 5)
+display_scilicium_pal("SciliciumPairedLight", 10)
+
 }
+\seealso{
+Other palette vizualization functions: 
+\code{\link{display_scilicium_all}()}
+}
+\concept{palette vizualization functions}
