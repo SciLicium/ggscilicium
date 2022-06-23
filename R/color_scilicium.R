@@ -13,6 +13,14 @@ scilicium_qual_palettes <- list(
                           "#dc394a", "#6c1524",
                           "#dda15e", "#5e3b14",
                           "#a85edd", "#551b7e"),
+  SciliciumLong = c("#0DBA13", "#39A0ED", "#dc394a", "#dda15e", "#a85edd",
+                    "#c6fbc7","#abd7f7", "#fac0ba", "#f4ddc3", "#e0c3f4",
+                    "#086408", "#0c4d7c", "#6c1524",  "#5e3b14","#551b7e"),
+  SciliciumTrio = c("#0DBA13", "#c6fbc7", "#086408",
+                    "#39A0ED", "#abd7f7", "#0c4d7c",
+                    "#dc394a", "#fac0ba", "#6c1524",
+                    "#dda15e", "#f4ddc3", "#5e3b14",
+                    "#a85edd", "#e0c3f4", "#551b7e"),
   KombuGreen      = c("#0DBA13", "#283618", "#93827F", "#E0D2C3", "#B4D4EE"), #https://coolors.co/0dba13-283618-93827f-e0d2c3-b4d4ee
   Midnight      = c("#0DBA13", "#39A0ED", "#114B5F", "#E4FDE1", "#F45B69"), #https://coolors.co/0dba13-39a0ed-114b5f-e4fde1-f45b69
   Vivid      = c("#0DBA13", "#39A0ED", "#F6511D", "#FFB400", "#CA1551", "#0D2C54", "#9B5DE5", "#F15BB5", "#136F63", "#732C2C", "#B9E28C", "#F0F7F4", "#DDA15E"), #https://coolors.co/0dba13-39a0ed-f6511d-ffb400-0d2c54
@@ -337,7 +345,7 @@ display_scilicium_all <- function(){
   oldpar <- graphics::par(mgp=c(2,0.25,0))
   on.exit(graphics::par(oldpar))
 
-  plot(1, 1, xlim=c(0, nc), ylim=c(0,nr), type="n", axes=FALSE, bty="n",
+  plot(1, 1, xlim=c(-1, nc), ylim=c(0,nr), type="n", axes=FALSE, bty="n",
        xlab="", ylab="")
   for(i in 1:length(qual_palettes)){
 
