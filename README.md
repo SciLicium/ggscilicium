@@ -14,6 +14,8 @@ library(ggscilicium)
 display_scilicium_all()
 ?ggscilicium
 ```
+Available palettes:
+![image](https://user-images.githubusercontent.com/101104633/175896580-9ec14d75-76ba-4bbc-93ec-2a7346242ffb.png)
 
 ## Generic package functions
 
