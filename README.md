@@ -41,6 +41,6 @@ To create a new theme, just add it to the theme_scilicium.R file (+rebuild).
 Future improvements may include diverging palettes as well.
 
 ## Useful ressources
-https://learnui.design/tools/data-color-picker.html#divergent
-https://projects.susielu.com/viz-palette?colors=[%22#ffd700%22,%22#ffb14e%22,%22#fa8775%22,%22#ea5f94%22,%22#cd34b5%22,%22#9d02d7%22,%22#0000ff%22]&backgroundColor=%22white%22&fontColor=%22black%22&mode=%22normal%22
-https://github.com/thomasp85/scico
+* https://learnui.design/tools/data-color-picker.html#divergent
+* https://projects.susielu.com/viz-palette?colors=[%22#ffd700%22,%22#ffb14e%22,%22#fa8775%22,%22#ea5f94%22,%22#cd34b5%22,%22#9d02d7%22,%22#0000ff%22]&backgroundColor=%22white%22&fontColor=%22black%22&mode=%22normal%22
+* https://github.com/thomasp85/scico
