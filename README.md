@@ -35,7 +35,12 @@ The following functions are made to use with ggplot2:
 * **Qualitative** palettes are a collection of colors, designed to be hopefully both nice and coherent. They all comprise the notorious 'SciLicium green' (#0dba13).
 * **Sequential** palettes are ordered shade of colors , to use e.g. for representing different doses of a same compound. They are available in green, blue, red and ochre.
 
-## package contributions and improvements
+## package contributions and future improvements
 To add a new palette, simply add it to the corresponding list at the beginning of color_scilicium.R, rebuild the package, and that's it!
 To create a new theme, just add it to the theme_scilicium.R file (+rebuild).
 Future improvements may include diverging palettes as well.
+
+## Useful ressources
+https://learnui.design/tools/data-color-picker.html#divergent
+https://projects.susielu.com/viz-palette?colors=[%22#ffd700%22,%22#ffb14e%22,%22#fa8775%22,%22#ea5f94%22,%22#cd34b5%22,%22#9d02d7%22,%22#0000ff%22]&backgroundColor=%22white%22&fontColor=%22black%22&mode=%22normal%22
+https://github.com/thomasp85/scico
