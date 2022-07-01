@@ -11,7 +11,7 @@ A bunch of SciLicium themes and colors!
 Github page: https://github.com/SciLicium/ggscilicium
 
 This message can be suppressed by:
-  suppressPackageStartupMessages(library(circlize))
+  suppressPackageStartupMessages(library(ggscilicium))
 ========================================
 ")
   
