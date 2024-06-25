@@ -57,6 +57,6 @@ theme_scilicium <- function() {
     ggplot2::theme(axis.ticks.y = ggplot2::element_line(color=scilicium_params$text_colour)) +
     ggplot2::theme(plot.caption = ggplot2::element_text(colour = scilicium_params$caption_colour,
                                                         family=scilicium_params$caption_family,
-                                                        size=rel(0.6)))
+                                                        size=ggplot2::rel(0.6)))
 
 }

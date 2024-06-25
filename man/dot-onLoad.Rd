@@ -6,6 +6,11 @@
 \usage{
 .onLoad(libname, pkgname)
 }
+\arguments{
+\item{libname}{Library name?}
+
+\item{pkgname}{Package name}
+}
 \description{
 OnLoad
 }

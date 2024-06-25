@@ -1,6 +1,6 @@
 Package: ggscilicium
 Title: Custom SciLicium Themes And Colors For Ggplot2
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Théophile", "Grébert", , "theophile@scilicium.com", role = c("aut", "cre"))
 Description: The package provides custom themes and colors for use with ggplot2.
@@ -14,7 +14,8 @@ Imports:
     grDevices,
     jsonlite,
     showtext,
-    sysfonts
+    sysfonts,
+    utils
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

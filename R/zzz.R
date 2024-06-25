@@ -1,6 +1,9 @@
 #' OnLoad
+#' @param libname Library name?
+#' @param pkgname Package name
 #' @export
 #' @import sysfonts
+#' @import utils
 .onLoad <- function(libname, pkgname) {
   version = packageDescription(pkgname, fields = "Version")
   
