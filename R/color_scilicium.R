@@ -1,5 +1,13 @@
 
 scilicium_qual_palettes <- list(
+  GenolensLong1       = c("#45c2a9", "#5d309c", "#33a8e3", "#ff5f5f", "#fec601", "#30415f", "#c9ada7", 
+                      "#beeae1", "#c6b7dc", "#b8e1f5", "#ffc7c7", "#ffeba6", "#ece2e0"),
+  GenolensPaired1       = c("#45c2a9", "#beeae1",
+                            "#5d309c", "#c6b7dc",
+                            "#33a8e3", "#b8e1f5",
+                            "#ff5f5f", "#ffc7c7",
+                            "#fec601", "#ffeba6",
+                            "#30415f", "#ece2e0"),
   SciliciumLight  = c("#0DBA13", "#39A0ED", "#466365", "#CAC4CE", "#F7ECE1"), #https://coolors.co/0dba13-466365-39a0ed-cac4ce-f7ece1
   SciliciumDark   = c("#08750C", "#1067AB", "#2D3F40", "#81738A", "#D39558"), #https://coolors.co/08750c-2d3f40-1067ab-81738a-d39558
   SciliciumPaired2 = c("#0DBA13", "#08750C", "#39A0ED", "#1067AB", "#CAC4CE", "#81738A", "#F7ECE1", "#D39558"),
@@ -24,7 +32,12 @@ scilicium_qual_palettes <- list(
   KombuGreen      = c("#0DBA13", "#283618", "#93827F", "#E0D2C3", "#B4D4EE"), #https://coolors.co/0dba13-283618-93827f-e0d2c3-b4d4ee
   Midnight      = c("#0DBA13", "#39A0ED", "#114B5F", "#E4FDE1", "#F45B69"), #https://coolors.co/0dba13-39a0ed-114b5f-e4fde1-f45b69
   Vivid      = c("#0DBA13", "#39A0ED", "#F6511D", "#FFB400", "#CA1551", "#0D2C54", "#9B5DE5", "#F15BB5", "#136F63", "#732C2C", "#B9E28C", "#F0F7F4", "#DDA15E"), #https://coolors.co/0dba13-39a0ed-f6511d-ffb400-0d2c54
-  EarthYellow     = c("#0DBA13", "#283618", "#51BBFE", "#DDA15E", "#FEFAE0")#https://coolors.co/0dba13-283618-fefae0-dda15e-51bbfe
+
+  EarthYellow     = c("#0DBA13", "#283618", "#51BBFE", "#DDA15E", "#FEFAE0"), #https://coolors.co/0dba13-283618-fefae0-dda15e-51bbfe
+  NewSciliciumPal1 = c("#42E2BA", "#2E294E", "#FFC43D", "#EF476F", "#F8FFE5"), #https://coolors.co/42e2ba-2e294e-ffc43d-ef476f-f8ffe5
+  NewSciliciumPal2 = c("#42E2BA", "#0D3B66", "#F4D35E", "#FF9E4A", "#F95738"),
+  NewSciliciumPal3 = c("#42E2BA", "#297373", "#39393A", "#CF5C36", "#EFD0A4"), #https://coolors.co/42e2ba-2e294e-ffc43d-ef476f-f8ffe5
+  NewSciliciumPal4 = c("#42E2BA", "#297373", "#2DC7FF", "#EAD2AC", "#EABA6B") #https://coolors.co/42e2ba-297373-2dc7ff-ead2ac-eaba6b
 )
 
 # sequential palettes (or gradients) are defined from darker to lighter shades
