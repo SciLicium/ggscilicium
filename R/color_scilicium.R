@@ -424,7 +424,7 @@ display_scilicium_all <- function(){
   }
   #plot number of colors in seq palettes
   graphics::text(rep(2.05,length(seq_palettes)),(1:length(seq_palettes))-0.6+y_offset, labels=rep("(2)", length(seq_palettes)), xpd=TRUE, adj=0)
-  graphics::text(lengths(scilicium_sequential_palettes)+3+.05,(1:length(seq_palettes))-0.6+y_offset, labels=lengths(scilicium_sequential_palettes), xpd=TRUE, adj=0)
+  graphics::text(lengths(scilicium_sequential_palettes[sort(names(scilicium_sequential_palettes))])+3+.05,(1:length(seq_palettes))-0.6+y_offset, labels=lengths(scilicium_sequential_palettes[sort(names(scilicium_sequential_palettes))]), xpd=TRUE, adj=0)
 
   #plot number of colors in qual palettes
   graphics::text(lengths(scilicium_qual_palettes[sort(names(scilicium_qual_palettes))])+.05,(1:length(qual_palettes))-0.6, labels=lengths(scilicium_qual_palettes[sort(names(scilicium_qual_palettes))]), xpd=TRUE, adj=0)
