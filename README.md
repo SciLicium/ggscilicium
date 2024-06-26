@@ -15,7 +15,8 @@ display_scilicium_all()
 ?ggscilicium
 ```
 Available palettes:
-![image](https://github.com/SciLicium/ggscilicium/assets/101104633/8d25e07a-fa7d-4c90-a1a4-9157d955249d)
+![image](https://github.com/SciLicium/ggscilicium/assets/101104633/fee401f7-7490-4390-b001-1483e9d71190)
+
 
 
 ## Generic package functions
