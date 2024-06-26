@@ -113,7 +113,47 @@ scilicium_sequential_palettes <- list(
       c("#321f0b", "#9d6321", "#dda15e", "#ebc8a1", "#f9eee3"),
       c("#321f0b", "#7a4d1a", "#bb8446", "#ebb375", "#f4d6b3", "#fbf0e5"),
       c("#321f0b", "#7a4d1a", "#a87438", "#dda15e", "#f9c58b", "#f2dabf", "#faefe4")
-    )
+    ), 
+    GenolensGreen = list(
+      c("#45c2a9"),
+      c("#00634f", "#45c2a9"),
+      c("#00634f", "#45c2a9", "#82ead5"),
+      c("#004d3b", "#008872", "#45c2a9", "#82ead5"),
+      c("#004d3b", "#008872", "#45c2a9", "#53e8ca", "#a9ebde"),
+      c("#003020", "#00624f", "#009b84", "#45c2a9", "#53e8ca", "#a9ebde"),
+      c("#003020", "#00624f", "#009b84", "#45c2a9", "#53e8ca", "#99ebdb", "#c3ebe2"),
+      c("#003020", "#00513f", "#007560", "#009b84", "#45c2a9", "#53e8ca", "#99ebdb", "#c3ebe2")
+    ),
+  GenolensBlue = list(
+      c("#33a8e3"),
+      c("#004576", "#33a8e3"),
+      c("#004576", "#33a8e3", "#75cdfa"),
+      c("#003666", "#006da3", "#33a8e3", "#75cdfa"),
+      c("#003666", "#006da3", "#33a8e3", "#64c7fa", "#96d8fa"),
+      c("#003666", "#006095", "#0086be", "#33a8e3", "#64c7fa", "#96d8fa"),
+      c("#003666", "#006095", "#0086be", "#33a8e3", "#64c7fa", "#96d8fa", "#c8e9fa"),
+      c("#002a58", "#004679", "#00659b", "#0086be", "#33a8e3", "#64c7fa", "#96d8fa", "#c8e9fa")
+    ),
+    GenolensRed = list(
+      c("#ff5f5f"),
+      c("#8f0f17", "#ff5f5f"),
+      c("#8f0f17", "#ff5f5f", "#ffa9a9"),
+      c("#660000", "#c42134", "#ff5f5f", "#ffa9a9"),
+      c("#660000", "#c42134", "#ff5f5f", "#ff9191", "#ffc7c7"),
+      c("#660000", "#b10726", "#d83b42", "#ff5f5f", "#ff9191", "#ffc7c7"),
+      c("#660000", "#b10726", "#d83b42", "#ff5f5f", "#ff9191", "#ffc7c7", "#ffebeb"),
+      c("#660000", "#8a000d", "#b10726", "#d83b42", "#ff5f5f", "#ff9191", "#ffc7c7", "#ffebeb")
+    ),
+    GenolensOchre = list(
+      c("#fec601ff"),
+      c("#8a6500fc", "#fec601ff"),
+      c("#8a6500fc", "#fec601ff", "#ffed92fe"),
+      c("#543900fe", "#b78a00fd", "#fec601ff", "#ffed92fe"),
+      c("#543900fe", "#b78a00fd", "#fec601ff", "#ffe873ff", "#fff6c4ff"),
+      c("#472f00ff", "#825c00fd", "#ca9a00ff", "#fec601ff", "#ffe873ff", "#fff6c4ff"),
+      c("#472f00ff", "#825c00fd", "#ca9a00ff", "#fec601ff", "#ffe873ff", "#fff6c4ff", "#fffbe5ff"),
+      c("#472f00ff", "#6b4800ff", "#997000ff", "#ca9a00ff", "#fec601ff", "#ffe873ff", "#fff6c4ff", "#fffbe5ff")
+    ) #https://mycolor.space/?hex=%23FEC601&sub=1
   )
 
 
