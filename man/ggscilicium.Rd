@@ -2,6 +2,7 @@
 % Please edit documentation in R/ggscilicium.R
 \docType{package}
 \name{ggscilicium}
+\alias{ggscilicium-package}
 \alias{ggscilicium}
 \title{ggscilicium: A package for custom SciLicium graphic theme}
 \description{
@@ -42,3 +43,7 @@ To create a new theme, just add it to the theme_scilicium.R file (+rebuild).
 Future improvements may include diverging palettes as well.
 }
 
+\author{
+\strong{Maintainer}: Théophile Grébert \email{theophile@scilicium.com}
+
+}
